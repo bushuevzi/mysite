@@ -9,7 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-03-22.22:41:24.216</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-03-22.23:39:49.262</IntrospectionTimestamp>
+      <IntrospectionStateNumber>16391</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -28,5 +29,50 @@
     <schema id="8" parent="2" name="information_schema">
       <ObjectId>12123</ObjectId>
     </schema>
+    <sequence id="9" parent="3" name="django_migrations_id_seq">
+      <ObjectId>20699</ObjectId>
+      <StateNumber>16391</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <table id="10" parent="3" name="django_migrations">
+      <ObjectId>20701</ObjectId>
+      <StateNumber>16391</StateNumber>
+    </table>
+    <column id="11" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>16391</StateNumber>
+      <DefaultExpression>nextval(&apos;django_migrations_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="12" parent="10" name="app">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>16391</StateNumber>
+    </column>
+    <column id="13" parent="10" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>16391</StateNumber>
+    </column>
+    <column id="14" parent="10" name="applied">
+      <Position>4</Position>
+      <DataType>timestamp with time zone|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>16391</StateNumber>
+    </column>
+    <index id="15" parent="10" name="django_migrations_pkey">
+      <ObjectId>20708</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="16" parent="10" name="django_migrations_pkey">
+      <ObjectId>20709</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>django_migrations_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>
