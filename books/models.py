@@ -16,22 +16,29 @@ class Publisher(models.Model):
     class Meta:
         ordering = ['name']
 
+    class Admin:
+        pass
+
 class Author(models.Model):
     salutation = models.CharField(max_length=10)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
     email = models.EmailField()
-    headshot = models.ImageField(upload_to='/tmp/test_site')
+    headshot = models.ImageField(upload_to='./images/')
 
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
+    class Admin:
+        pass
+
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ManyToManyField(Author)
+    authors = models.ManyToManyField(Author, related_name="author")
     publisher = models.ForeignKey(Publisher)
     publication_date = models.DateField()
     num_pages = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.title
+
