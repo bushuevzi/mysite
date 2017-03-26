@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href={% static 'books/style.css' %}>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact us</title>
+</head>
+<body>
+    <h1>Contact us</h1>
+    <form action="." method="POST">{% csrf_token %}
+{#       <table>#}
+{#           {{ form.as_table }}#}
+{#       </table>#}
+        <div class="fieldWrapper">
+            {{ form.topic.errors }}
+            <label for="id_topic">Kind of feedback:</label>
+            {{ form.topic }}
+        </div>
+        <div class="fieldWrapper {% if form.message.errors %} errors {% endif %}">
+            {% if form.message.errors %}
+                <ol>
+                {% for error in form.message.errors %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+                </ol>
+            {% endif %}
+            <label for="id_message">Your message:</label>
+            {{ form.message }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.sender.errors }}
+            <label for="id_sendler">Your email (optional):</label>
+            {{ form.sender }}
+        </div>
+        <p><input type="submit", value="Submit"></p>
+    </form>
+</body>
+</html>

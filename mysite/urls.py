@@ -17,10 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from mysite.views import current_datetime, hours_ahead
 from books.views import search
+from books.views import contact
+from books.views import add_publisher
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^time/$', current_datetime),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
-    url(r'^search/$', search)
+    url(r'^search/$', search),
+    url(r'^contact/$', contact),
+    url(r'^add_publisher/$', add_publisher),
 ]
